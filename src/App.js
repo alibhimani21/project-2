@@ -1,44 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter, Switch, Route } from 'react-router-dom'
+import { HomePage, HomeNavBar } from './HomePage'
 
-import 'bulma'
 import './styles/style.scss'
+import 'bulma'
+
+import NavBar from './NavBar'
+import Results from './Results'
 
 const App = () => {
-  const [text, setText] = useState('')
-  const [fetchedData, updateFetchedData] = useState([])
-  const search = ('https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=' + `${text}`)
-
-  function getFetch() {
-    fetch(search)
-      .then(resp => resp.json())
-      .then(data => {
-        updateFetchedData(data)
-        console.log(data)
-      })
-  }
-
-  return <div>
-    <input
-      type="text"
-      onChange={(event) => setText(event.target.value)}
-      value={text}
-    />
-
-
-    <button onClick={() =>
-      getFetch()
-    } >
-      Search
-    </button>
-
-  </div >
-
-
-
-
+  return <HashRouter>
+    <NavBar />
+    <Switch>
+      <Route exact path="/" >
+        <HomePage />
+        <HomeNavBar />
+      </Route>
+      <Route exact path="/results" component={Results} />
+      <Route exact path="/resultz" component={Results} />
+    </Switch>
+  </HashRouter>
 }
 
-// fetch ('deezer.com/search/artist?q=`${(target.value)}`')
 export default App
