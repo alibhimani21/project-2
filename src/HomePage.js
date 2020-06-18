@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import HomeImage from './src/images/home3.png'
+import HomeImage from './images/home3.png'
 
 
 export const HomePage = () => {

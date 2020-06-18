@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import LargeLogo from './src/images/muzaic.png'
+import LargeLogo from './images/muzaic.png'
 
 const Results = (props) => {
   const fetchedData = props.location.state

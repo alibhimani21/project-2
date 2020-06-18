@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import Logo from './src/images/muzaic.png'
+import Logo from './images/muzaic.png'
 
 const NavBar = (props) => {
   const [text, setText] = useState('')
