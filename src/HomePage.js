@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import HomeImage from './images/home3.png'
 
 
 export const HomePage = () => {
   return <div className="homepage">
     <figure className="albums">
-      <img src={'./images/home3.png'} alt="album covers" />
+      <img src={HomeImage} alt="album covers" />
     </figure>
   </div>
 }
