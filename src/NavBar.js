@@ -9,11 +9,12 @@ const NavBar = (props) => {
   // console.log(fetchedData)
 
 
-  function getFetch() {
+  function getFetch(event) {
+    event.preventDefault()
     fetch(search)
       .then(resp => resp.json())
       .then(data => {
-        // updateFetchedData(data.data)e
+        // updateFetchedData(data.data)
         console.log(props)
         if (props.location.pathname === '/results') {
           props.history.push({
@@ -28,39 +29,50 @@ const NavBar = (props) => {
           })
 
         }
+        setText('')
       })
 
   }
 
   return <div className="navbar">
 
-    <img src={'./images/muzaic.png'} alt="muzaic" className="navlogo" />
-    {/* <img src={require('./images/muzaic.png')} /> */}
+    <Link to="/" >
+      <img
+        src={'./images/muzaic.png'}
+        alt="muzaic"
+        className="navlogo"
+      />
+    </Link>
+
+
 
 
     <div className="search">
-      <input
-        className="searchinput"
-        type="text"
-        placeholder="Search for artists..."
-        onChange={(event) => setText(event.target.value)}
-        value={text}
-      />
+      <form
+        onSubmit={getFetch}
+      >
+        <input
+          className="searchinput"
+          type="text"
+          placeholder="Search for artists..."
+          onChange={(event) => setText(event.target.value)}
+          value={text}
+        />
 
-      <button
-        onClick={getFetch}
-        className="searchbtn" >
-
-
-        Search
-      </button>
-
+        <button
+          onClick={getFetch}
+          className="searchbtn" >
 
 
+          Search
+        </button>
+      </form>
 
-      {/* <button onClick={getFetch} className="searchbtn">
-      Search
-    </button> */}
+
+
+
+
+
 
     </div>
   </div>

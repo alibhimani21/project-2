@@ -8,6 +8,8 @@ import 'bulma'
 
 import NavBar from './NavBar'
 import Results from './Results'
+import Artist from './Artist'
+import Album from './Album'
 
 const App = () => {
   return <HashRouter>
@@ -15,10 +17,13 @@ const App = () => {
     <Switch>
       <Route exact path="/" >
         <HomePage />
-        <HomeNavBar />
+        {/* <HomeNavBar /> */}
       </Route>
       <Route exact path="/results" component={Results} />
       <Route exact path="/resultz" component={Results} />
+      <Route path="/artist/:id" component={Artist} />
+      <Route path="/album/:id" component={Album} />
+
     </Switch>
   </HashRouter>
 }
