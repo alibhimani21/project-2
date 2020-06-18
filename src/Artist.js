@@ -46,22 +46,24 @@ const Artist = (props) => {
         updatetopTrackstData(data)
         console.log(data)
       })
-  }, [])
+  }, [props.match.params.id])
 
   return <div className="artist-page">
 
     <div className="artist-header">
       <div className="artist-data">
-        <h1>{artistData.name}</h1>
-        <img src={artistData.picture_medium} alt={artistData.name} />
+        <h1 className="artist-name">{artistData.name}</h1>
+        <img className="artistimg" src={artistData.picture_medium} alt={artistData.name} />
       </div>
 
       <div className="top-tracks">
 
 
+        <h1 className="titles">Top Tracks</h1>
+
         {topTracksData.data.map((track, index) => {
 
-          return <div key={index}>
+          return <div key={index} className="recommended">
             <h1>{track.title}</h1>
             <ReactAudioPlayer
               src={track.preview}
@@ -75,8 +77,10 @@ const Artist = (props) => {
 
     </div>
 
-
+    <h1 className="titles">Albums</h1>
     <div className="albums-data">
+
+
 
 
       {albumsData.map((albums, index) => {
@@ -104,26 +108,31 @@ const Artist = (props) => {
 
     </div>
 
+    <h1 className="titles">Related Artists</h1>
 
     <div className="related-artists">
 
 
+
+
       {relatedArtistData.data.map((related, index) => {
         return <div key={index} className="column is-one-fifth-desktop is-quarter-tablet is-half-mobile">
-          <div className="card has-text-centered">
-            <div className="card-content">
-              <div className="media">
-                <div className="media-content">
-                  <p className="title is-4">{related.name}</p>
+          <Link to={`/artist/${related.id}`}>
+            <div className="card has-text-centered">
+              <div className="card-content">
+                <div className="media">
+                  <div className="media-content">
+                    <p className="title is-4">{related.name}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="card-image">
-            <figure className="image is-1-1">
-              <img src={related.picture_medium} alt={related.name} />
-            </figure>
-          </div>
+            <div className="card-image">
+              <figure className="image is-1-1">
+                <img src={related.picture_medium} alt={related.name} />
+              </figure>
+            </div>
+          </Link>
         </div>
       })}
 

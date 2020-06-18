@@ -21,10 +21,14 @@ const Album = (props) => {
   }, [])
 
   return <div>
-    <h1>{albumsData.title}</h1>
+    <div className="album-header">
+      <h1>{albumsData.title}</h1>
+      <img src={albumsData.cover_medium} />
+    </div>
+
 
     {albumsData.tracks.data.map((track, index) => {
-      return <div key={index}>
+      return <div key={index} className="tracklist">
         <p>{track.title}</p>
         <ReactAudioPlayer
           src={track.preview}

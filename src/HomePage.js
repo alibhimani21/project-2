@@ -4,18 +4,8 @@ import React, { useState } from 'react'
 export const HomePage = () => {
   return <div className="homepage">
     <figure className="albums">
-      <img src={'./images/home.png'} alt="album covers" />
+      <img src={'./images/home3.png'} alt="album covers" />
     </figure>
-
-    <div className="container has-text-centered">
-      <h1 className="hometitle">
-        Muzaic
-      </h1>
-      <h2 className="homesubtitle">
-        Mix and Match Your Music
-      </h2>
-    </div>
-
   </div>
 }
 
