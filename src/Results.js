@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import LargeLogo from './src/images/muzaic.png'
 
 const Results = (props) => {
   const fetchedData = props.location.state
@@ -8,7 +9,7 @@ const Results = (props) => {
   if (!fetchedData) {
     return <div className="error">
       <h1>Sorry we didn't get that, use the search bar to find artists!</h1>
-      <img className="albums" src={'./images/muzaic.png'} alt="muzaic" />
+      <img className="albums" src={LargeLogo} alt="muzaic" />
     </div>
   } else {
     return <div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-// import logo from './images/muzaic.png'
+import Logo from './src/images/muzaic.png'
 
 const NavBar = (props) => {
   const [text, setText] = useState('')
@@ -38,7 +38,7 @@ const NavBar = (props) => {
 
     <Link to="/" >
       <img
-        src={'./images/muzaic.png'}
+        src={Logo}
         alt="muzaic"
         className="navlogo"
       />
